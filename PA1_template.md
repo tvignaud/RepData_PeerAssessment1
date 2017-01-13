@@ -108,18 +108,18 @@ Calculate and report the mean and median of the total number of steps taken per 
 Mean Nb of steps per day
 
 ```r
-mean_step <- round(mean(Daily_steps$steps))
+mean_step <- mean(Daily_steps$steps)
 mean_step
 ```
 
 ```
-## [1] 10766
+## [1] 10766.19
 ```
 
 Median Nb of steps per day
 
 ```r
-median_step <- round(median(Daily_steps$steps))
+median_step <- median(Daily_steps$steps)
 median_step
 ```
 
@@ -223,7 +223,7 @@ mean_step_nona
 ```
 
 ```
-## [1] 10958.44
+## [1] 10869.82
 ```
 
 Median Nb of steps per day
@@ -234,7 +234,7 @@ median_step_nona
 ```
 
 ```
-## [1] 11162
+## [1] 10847
 ```
 
 The mean and the median are quite the same after imputation.
@@ -269,7 +269,7 @@ Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minut
 Daily_pattern_week <- aggregate(steps~timemin+weekend,activity_nona,mean)
 library(ggplot2)
 g <- ggplot(Daily_pattern_week,aes(timemin/60,steps))
-g + geom_line() + facet_grid(.~weekend) + labs(x = "Time in hour",title="Number of steps by 5 min intervals averaged over weekday or weekend",y="Mean number of steps by 5 min interval")
+g + geom_line() + facet_grid(weekend~.) + labs(x = "Time in hour",title="Number of steps by 5 min intervals averaged over weekday or weekend",y="Mean number of steps by 5 min interval")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-22-1.png)<!-- -->

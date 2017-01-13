@@ -175,7 +175,7 @@ Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minut
 Daily_pattern_week <- aggregate(steps~timemin+weekend,activity_nona,mean)
 library(ggplot2)
 g <- ggplot(Daily_pattern_week,aes(timemin/60,steps))
-g + geom_line() + facet_grid(.~weekend) + labs(x = "Time in hour",title="Number of steps by 5 min intervals averaged over weekday or weekend",y="Mean number of steps by 5 min interval")
+g + geom_line() + facet_grid(weekend~.) + labs(x = "Time in hour",title="Number of steps by 5 min intervals averaged over weekday or weekend",y="Mean number of steps by 5 min interval")
 ```
 
 There is a clear difference in the pattern between weekday and weekend.
